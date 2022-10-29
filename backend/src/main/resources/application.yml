@@ -1,0 +1,48 @@
+spring:
+  profiles:
+    active:
+    - develop
+mainTitle:
+  title: "Tour of local default"
+---
+# profile for local dev
+spring:
+  web:
+    resources:
+      static-locations:
+      - classpath:static/dist/frontend
+  config:
+    activate:
+      on-profile:
+      - develop
+  #console colors
+  output:
+    ansi:
+      enabled: always
+#logging levels
+debug: true
+logging:
+  level:
+    root: debug
+    org:
+      springframework:
+        web: debug
+#endpoints
+api:
+  heroservice:
+    url: http://localhost:8082
+server:
+  port: 8081
+mainTitle:
+  title: "Tour of local develop"
+
+---
+#profile for running tests
+spring:
+  config:
+    activate:
+      on-profile:
+      - test
+mainTitle:
+  title: "Tour of unit testing"
+
